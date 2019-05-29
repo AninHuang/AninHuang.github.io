@@ -5,68 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Anin Huang</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Suranna&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/all.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+    <div class="cursor"></div>
     <div class="init">
         <div class="container">
             <div class="row">
-                <div class="col-6"><div class="glitch" data-text="PLAY">PLAY</div></div>
-                <div class="col-6"><div class="glitch" id="countdown" data-text=""></div></div>
+                <div class="col-6">
+                    <div class="glitch" data-text="PLAY">PLAY</div>
+                </div>
+                <div class="col-6">
+                    <div class="glitch" id="countdown" data-text=""></div>
+                </div>
             </div>
             <div class="row">
-                <div class="col-6"><div class="glitch" id="time" data-text=""></div></div>
+                <div class="col-6">
+                    <div class="glitch" id="time" data-text=""></div>
+                </div>
             </div>
             <div class="row">
-                <div class="col-6"><div class="glitch" id="date" data-text=""></div></div>
+                <div class="col-6">
+                    <div class="glitch" id="date" data-text=""></div>
+                </div>
             </div>
         </div>
     </div>
+    <main>
+    <section class="indicator">
+        <div class="indicator-full">
+            <div class="indicator-active"></div>
+            <span class="indicator-number">01</span>
+        </div>  
+    </section>
+    <section class="mid">
+        <div class="layer">
+            <div class="item item-displayed">
+                <div></div>
+                <div style="background-image: linear-gradient(to right top, #051937, #042553, #073270, #133f8f, #244bae);"></div>
+                <img src="https://images.unsplash.com/photo-1472289065668-ce650ac443d2?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9">
+            </div>
+            <div class="item">
+                <div></div>
+                <img src="https://images.unsplash.com/photo-1436262513933-a0b06755c784?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9">
+                <div></div>
+            </div>
+            <div class="item">
+                <div></div>
+                <img src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9">
+                <div style="border-left: 10px solid #244bae; margin-left: -30px; width: 100px; height: 195px;"></div>
+            </div>
+        </div>
+        <div class="layer">
+            <div class="item item-revealed item-displayed">
+                <h2 class="text-stroke"><span style="color: #ebb300; font-weight: bold;">Hi, I'm Anin!</span><br/><br/>I'm a Taiwan based <span style="background-color: #ebb300; font-weight: bold; padding: 0 5px;">front-end developer</span><br/><br/><br/>specialized in developing <br/><br/><span style="color: black; background-color: white; font-weight: bold; padding: 0 5px;">responsive and interactive web design.</span></h3>
+                <span class="text-vertical">Scroll for more..</span>
+                <span class="text-intro"></span>
+            </div>
+            <div class="item"></div>
+            <div class="item">
+                <h2></h2>
+                <span class="text-vertical"></span>
+                <span class="text-intro">I love striking the balance between <span style="text-decoration: underline;">aesthetics</span> & <span style="text-decoration: underline;">programming</span></span>
+            </div>
+            <div class="item"></div>
+            <div class="item">
+                <h2></h2>
+                <span class="text-vertical"></span>
+                <span class="text-intro">I'm also eager to work abroad, please feel free to reach out to me :-)</span>
+            </div>
+        </div>
+    </section>
+    </main>
 </body>
-<script>
-function startTimer(duration, countdown) {
-    var timer = duration, seconds;
-    setInterval(function () {
-        seconds = parseInt(timer % 60, 10);
-
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        countdown.textContent = "00:00:" + seconds;
-        countdown.dataset.text = countdown.textContent;
-
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
-}
-
-function formatAMPM(date) {
-    var hours = date.getHours();
-    var minutes = date.getMinutes();
-    var ampm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    var strTime = ampm + ' ' + hours + ':' + minutes;
-    return strTime;
-}
-
-window.onload = function () {
-    var countdown = document.querySelector('#countdown');
-    var time = document.querySelector('#time');
-    var date = document.querySelector('#date');
-    var today = new Date();
-    var monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-
-    time.textContent = formatAMPM(today);
-    time.dataset.text = time.textContent;
-
-    date.textContent = monthNames[today.getMonth()] + ' ' + today.getDate() + ' ' + today.getFullYear();
-    date.dataset.text = date.textContent;
-
-    startTimer(10, countdown);
-};
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bowser/1.9.3/bowser.min.js"></script>
+<script src="./js/main.js"></script>
 </html>
